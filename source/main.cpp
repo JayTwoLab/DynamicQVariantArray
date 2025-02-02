@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
     j2::TwoDimensions::DynamicQVariantArray myArray;
 
     // Set the array size
-    myArray.resize(3, 3);
+    myArray.resize(3, 3); // (3 rows, 3 cols)
 
     // Set and retrieve QVariant values
     myArray.setValue(0, 0, 42);              // Integer
@@ -19,12 +19,22 @@ int main(int argc, char *argv[])
     myArray.setValue(0, 2, 3.14);            // Double
 
     // Print specific values
-    qDebug() << "Value at (0,0):" << myArray.getValue(0, 0).toInt();
-    qDebug() << "Value at (0,1):" << myArray.getValue(0, 1).toString();
-    qDebug() << "Value at (0,2):" << myArray.getValue(0, 2).toDouble();
+    qDebug() << "Value at (0,0):" << myArray.getValue(0, 0);
+    qDebug() << "Value at (0,1):" << myArray.getValue(0, 1);
+    qDebug() << "Value at (0,2):" << myArray.getValue(0, 2);
+    qDebug() << "---------------------" ;
 
     // Print the entire array
     myArray.printArray();
+    qDebug() << "---------------------" ;
+
+    // Resize the array
+    myArray.resize(2, 2);
+
+    myArray.printArray();
+    qDebug() << "---------------------" ;
+    qDebug() << "Value at (0,2):" << myArray.getValue(0, 2);
+    qDebug() << "---------------------" ;
 
     return 0;
 }
